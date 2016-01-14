@@ -1,0 +1,43 @@
+#!/bin/bash
+# chkconfig: 345 99 01
+# description: turn_stats_sender startup script
+#
+#       /etc/rc.d/init.d/<servicename>
+#
+
+
+# Source function library.
+. /etc/rc.d/init.d/functions
+
+#chkconfig –level 2345 myscript on
+
+start() {
+        echo -n "Starting turn_stats_sender: "
+        cd /opt/turn_stats_sender
+        NODE_ENV='ENV' forever -a -l /opt/logs/turn_stats_sender_log.txt start /opt/turn_stats_sender/turn_stats_sender.js
+
+
+}
+stop() {
+        echo -n "Shutting down turn_stats_sender: "
+        cd /opt/turn_stats_sender
+        forever stopall
+}
+
+case "$1" in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    restart)
+        stop
+        start
+        ;;
+    *)
+        echo "Usage: turnapi {start|stop|status|reload|restart[|probe]"
+        exit 1
+        ;;
+esac
+exit $?
