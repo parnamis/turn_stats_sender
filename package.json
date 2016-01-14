@@ -1,0 +1,15 @@
+{
+  "name": "turn-stats-sender",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node turn_stats_sender.js"
+  },
+  "dependencies": {
+    "node-cassandra-cql": "0.5.x",
+    "console-stamp": "0.2.x"
+  },
+  "engines": {
+    "node": "0.10.x",
+    "npm":  "1.2.x"
+   }
+}
