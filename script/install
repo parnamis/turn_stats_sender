@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Install steps for turn_stats_sender
+# Make sure to use your own git username
+
+sudo yum update
+sudo yum install traceroute curl wget git npm nodejs.x86_64
+sudo npm install -g forever
+cd /opt
+sudo mkdir /opt/logs
+sudo git clone https://USERNAME@github.com/CommsOps/turn_stats_sender.git
+cd /opt/turn_stats_sender
+sudo npm install
+sudo cp /opt/turn_stats_sender/script/turn_api /etc/init.d/turn_stats_sender
+sudo chmod +x /etc/init.d/turn_stats_sender
+sudo chkconfig --add turn_stats_sender
+sudo chkconfig --level 35 turn_stats_sender on
+sudo vim /etc/init.d/turn_stats_sender
+# replace ENV line 17 of /etc/init.d/turn_stats_sender with relevant environment string
+
+# Start server :
+# sudo service start turn_stats_sender
