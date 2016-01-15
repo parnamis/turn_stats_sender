@@ -1,6 +1,6 @@
-### TURN API
+### TURN STATS SENDER
 
-Node.js app that periodically collects utilization information about the number of connections and CPU and RAM usage and stores it in a Cassandra cluster.
+Node.js app that periodically collects utilization information about the number of connections and CPU and RAM usage of the host it is running on it and pushes this data to a Cassandra cluster.
 This app is part of the TURN server deployment and is deployed on every TURN server instance suppoprting the webrtc infrastructure.
 
 
