@@ -20,12 +20,12 @@ function processShellResults(error, stdout, stderr) {
   var command_spliter = stdout.split(delimiter);
 
   if (typeof command_spliter[0] == 'undefined') {
-    console.log('TURN STATS SENDER [ event=%s, error=%s ]', 'Error in processing shell command results - aborting', 'spliter.0 undefined');
+    console.log('TURN STATS SENDER [ event=%s, error=%s ]', 'Error in processing shell command results - aborting', 'Network/CPU/RAM data missing');
     return;
   }
 
   if (typeof command_spliter[1] == 'undefined') {
-    console.log('TURN STATS SENDER [ event=%s, error=%s ]', 'Error in processing shell command results - aborting', 'spliter.1 undefined');
+    console.log('TURN STATS SENDER [ event=%s, error=%s ]', 'Error in processing shell command results - aborting', 'TURN Server process not found');
     return;
   }
 
